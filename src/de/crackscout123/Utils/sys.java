@@ -11,9 +11,9 @@ public class sys {
 //	### CrackyBot.java ###
 	// Client and server settings 
 	public static Level DebugLvl = Level.ALL;
-	public static String hostname = "HOSTNAME.TDL";
-	public static String query_user = "serveradmin";
-	public static String query_pass = "password";
+	public static String hostname = CrackysBot.args_host;
+	public static String query_user = CrackysBot.args_user;
+	public static String query_pass = CrackysBot.args_pass;
 	public static Integer VirtualServerId = 1;
 	public static String nickname = "CrackysBot v0.1";
 	

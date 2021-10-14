@@ -14,6 +14,9 @@ import de.crackscout123.Utils.sys;
 
 public class CrackysBot {
 	
+	// Define login variables getting as start parameters
+	public static String args_user = "", args_pass = "", args_host = "";
+	
 	// Define default variables & initialize the teamspeak-api     
 	public static TS3Config cfg = new TS3Config();
 	public static TS3Query query = new TS3Query(cfg);
@@ -21,6 +24,21 @@ public class CrackysBot {
 	
 	
 	public static void main(String[] args) {
+		
+		// Fetch start parameters
+		// java -jar crackysbot.jar arg0 arg1 arg2
+		for(int i = 0; i < args.length; i++) {
+			// Handle the arguments 
+				args_user = args[0];			
+				args_pass = args[1];
+				args_host = args[2];
+			
+	        if(args[i].contains("--help")) {
+	        	System.out.println("=====HELP ARGUMENT TRIGGERD====");
+	        	System.out.println("java -jar crackybot.jar username password hostname");
+	        }
+		}
+		
 		// Initialize client and server settings
 		cfg.setDebugLevel(sys.DebugLvl);
 		cfg.setHost(sys.hostname);
@@ -47,15 +65,6 @@ public class CrackysBot {
 		
 		// Print in console bot is ready
 		System.out.println("Crackys-Bot loaded.");
-		
-		// Fetch start parameters
-		// java -jar crackysbot.jar arg0 arg1 arg2
-		for(int i = 0; i < args.length; i++) {
-			// Handle the arguments 
-	        if(args[i].contains("-help")) {
-	        	System.out.println("=====HELP ARGUMENT TRIGGERD====");
-	        }
-		}
 	}
 }
 
