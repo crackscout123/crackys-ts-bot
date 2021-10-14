@@ -55,15 +55,9 @@ public class ClientEvents {
 							}
 						}
 					}
-					CrackysBot.api.sendPrivateMessage(e.getClientId(), sys.alertedNotify.replace("%alerted%", String.valueOf(alerted-1)));
+					CrackysBot.api.sendPrivateMessage(e.getClientId(), sys.alertedNotify.replace("%alerted%", String.valueOf(alerted-sys.getActivQuarrys())));
 				}
 			}
-			
-			
-			
-			
-			
-			
 			
 			@Override
 			public void onClientLeave(ClientLeaveEvent arg0) {}
@@ -71,22 +65,11 @@ public class ClientEvents {
 			@Override
 			public void onClientJoin(ClientJoinEvent arg0) {}
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			@Override
 			public void onChannelMoved(ChannelMovedEvent arg0) {}
-						
 			
 			@Override
 			public void onChannelPasswordChanged(ChannelPasswordChangedEvent arg0) {}
-			
 			
 			@Override
 			public void onChannelEdit(ChannelEditedEvent arg0) {}
@@ -99,7 +82,6 @@ public class ClientEvents {
 			
 			@Override
 			public void onChannelCreate(ChannelCreateEvent arg0) {}
-						
 			
 			@Override
 			public void onTextMessage(TextMessageEvent arg0) {}
@@ -110,11 +92,9 @@ public class ClientEvents {
 			@Override
 			public void onPrivilegeKeyUsed(PrivilegeKeyUsedEvent arg0) {}
 			
-			
 		}});
 		
 	}
-	
 	
 }
 

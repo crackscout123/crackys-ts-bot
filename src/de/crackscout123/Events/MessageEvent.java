@@ -26,62 +26,58 @@ public class MessageEvent {
 	public static Client target;
 	
 	public static void load() {
-		CrackysBot.api.registerAllEvents();
-		CrackysBot.api.addTS3Listeners(new TS3Listener[] { new TS3Listener(){
+		
+			CrackysBot.api.registerAllEvents();
+			CrackysBot.api.addTS3Listeners(new TS3Listener[] { new TS3Listener(){
 
-			
-			
-			@Override
-			public void onTextMessage(TextMessageEvent e) {
-				// Define the sender 
-				sender = CrackysBot.api.getClientByUId(e.getInvokerUniqueId());
-				// Save message into string
-				String input = e.getMessage();
-				
-				// Checks if the messages starts with the bots prefix
-				if(input.startsWith("!crackysbot") && (e.getTargetMode() == TextMessageTargetMode.SERVER)) {
-					CrackysBot.api.sendPrivateMessage(sender.getId(), sys.msg_botrunning.replace("%sender%", sender.getNickname()));
+				@Override
+				public void onTextMessage(TextMessageEvent e) {
+					// Define the sender 
+					sender = CrackysBot.api.getClientByUId(e.getInvokerUniqueId());
+					// Save message into string
+					String input = e.getMessage();
+					
+					// Checks if the messages starts with the bots prefix
+					if(input.startsWith("!crackysbot") && (e.getTargetMode() == TextMessageTargetMode.SERVER)) {
+						CrackysBot.api.sendPrivateMessage(sender.getId(), sys.msg_botrunning.replace("%sender%", sender.getNickname()));
+					}
 				}
-			}
+				
+				@Override
+				public void onChannelCreate(ChannelCreateEvent arg0) {}
+	
+				@Override
+				public void onChannelDeleted(ChannelDeletedEvent arg0) {}
+	
+				@Override
+				public void onChannelDescriptionChanged(ChannelDescriptionEditedEvent arg0) {}
+	
+				@Override
+				public void onChannelEdit(ChannelEditedEvent arg0) {}
+	
+				@Override
+				public void onChannelMoved(ChannelMovedEvent arg0) {}
+	
+				@Override
+				public void onChannelPasswordChanged(ChannelPasswordChangedEvent arg0) {}
+	
+				@Override
+				public void onClientJoin(ClientJoinEvent arg0) {}
+	
+				@Override
+				public void onClientLeave(ClientLeaveEvent arg0) {}
+	
+				@Override
+				public void onClientMoved(ClientMovedEvent arg0) {}
+	
+				@Override
+				public void onPrivilegeKeyUsed(PrivilegeKeyUsedEvent arg0) {}
+	
+				@Override
+				public void onServerEdit(ServerEditedEvent arg0) {}
 			
-			
-			
-			
-			@Override
-			public void onChannelCreate(ChannelCreateEvent arg0) {}
-
-			@Override
-			public void onChannelDeleted(ChannelDeletedEvent arg0) {}
-
-			@Override
-			public void onChannelDescriptionChanged(ChannelDescriptionEditedEvent arg0) {}
-
-			@Override
-			public void onChannelEdit(ChannelEditedEvent arg0) {}
-
-			@Override
-			public void onChannelMoved(ChannelMovedEvent arg0) {}
-
-			@Override
-			public void onChannelPasswordChanged(ChannelPasswordChangedEvent arg0) {}
-
-			@Override
-			public void onClientJoin(ClientJoinEvent arg0) {}
-
-			@Override
-			public void onClientLeave(ClientLeaveEvent arg0) {}
-
-			@Override
-			public void onClientMoved(ClientMovedEvent arg0) {}
-
-			@Override
-			public void onPrivilegeKeyUsed(PrivilegeKeyUsedEvent arg0) {}
-
-			@Override
-			public void onServerEdit(ServerEditedEvent arg0) {}
-
-			
-	    } });
+			} 
+		});
 	}
 	
 }

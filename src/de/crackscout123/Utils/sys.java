@@ -47,6 +47,8 @@ public class sys {
 	public static String getNicknameById(Integer ClientId) {
 		return CrackysBot.api.getClientInfo(ClientId).getNickname().toString();
 	}
+	
+	public static Integer getActivQuarrys() { return CrackysBot.api.getServerInfo().getQueryClientsOnline(); }
 }
 
 

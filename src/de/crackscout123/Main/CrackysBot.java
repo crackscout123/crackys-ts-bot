@@ -6,11 +6,11 @@ import com.github.theholywaffle.teamspeak3.TS3Query;
 import com.github.theholywaffle.teamspeak3.api.event.TS3EventType;
 
 import de.crackscout123.Events.ClientEvents;
-import de.crackscout123.Events.JoinEvent;
+import de.crackscout123.Events.ServerEvents;
 import de.crackscout123.Events.MessageEvent;
 import de.crackscout123.Utils.sys;
 
-// Alpha-v0.1
+// Alpha-v0.1.2
 
 public class CrackysBot {
 	
@@ -29,9 +29,9 @@ public class CrackysBot {
 		// java -jar crackysbot.jar arg0 arg1 arg2
 		for(int i = 0; i < args.length; i++) {
 			// Handle the arguments 
-				args_user = args[0];			
-				args_pass = args[1];
-				args_host = args[2];
+			args_user = args[0];			
+			args_pass = args[1];
+			args_host = args[2];
 			
 	        if(args[i].contains("--help")) {
 	        	System.out.println("=====HELP ARGUMENT TRIGGERD====");
@@ -56,7 +56,7 @@ public class CrackysBot {
 		
 		// Initialize event class's
 		MessageEvent.load();
-		JoinEvent.load();
+		ServerEvents.load();
 		ClientEvents.load();
 		
 		// Initialize channel & group list for ChannelAlerts 

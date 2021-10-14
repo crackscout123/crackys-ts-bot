@@ -17,7 +17,7 @@ import com.github.theholywaffle.teamspeak3.api.wrapper.Client;
 
 import de.crackscout123.Main.CrackysBot;
 
-public class JoinEvent {
+public class ServerEvents {
 	
 	// Initialize variables
 	public static Client sender;
