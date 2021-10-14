@@ -11,7 +11,7 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 
 - [Installation](#installation)
 - [Contributing](#contributing)
-- [FAQ](#faq)
+- [Setup](#setup)
 - [License](#license)
 
 ## Installation
