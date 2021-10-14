@@ -7,11 +7,11 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 - <a href="https://www.oracle.com/de/java/technologies/javase/javase8-archive-downloads.html">JavaSE-1.8</a> (Should also work with newer versions)
 - <a href="https://github.com/TheHolyWaffle/TeamSpeak-3-Java-API">TeamSpeak 3 API</a> v1.0.14 
 
-## ## Table of Contents 
+## Table of Contents 
 
 - [Installation](#installation)
-- [Contributing](#contributing)
 - [Setup](#setup)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
