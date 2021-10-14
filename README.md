@@ -45,7 +45,7 @@ Replace **queryusername**, **querypassword**, **hostname** with the serverquery 
 
 ### Step 3
 
-- 🔃 Create a new pull request using <a href="https://github.com/getPoland/crackys-ts-bot/compare/" target="_blank">`https://github.com/getPoland/mailfix/compare/`</a>.
+- 🔃 Create a new pull request using <a href="https://github.com/getPoland/crackys-ts-bot/compare/" target="_blank">`https://github.com/getPoland/crackys-ts-bot/compare/`</a>.
 
 
 ## License
