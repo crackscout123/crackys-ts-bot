@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.logging.Level;
 
 import de.crackscout123.Main.CrackysBot;
+import de.crackscout123.Wrapper.ConfigWrapper;
+
 
 public class sys {
 
@@ -15,7 +17,8 @@ public class sys {
 	public static String query_user = CrackysBot.args_user;
 	public static String query_pass = CrackysBot.args_pass;
 	public static Integer VirtualServerId = 1;
-	public static String nickname = "CrackysBot v0.1";
+	public static String nickname = CrackysBot.args_nickname;
+	
 	
 // 	### MessageEvent.java ###
 	// You can use %sender% to display the nickname of user who triggered the command
@@ -24,14 +27,22 @@ public class sys {
 //	### ClientEvents.java ###	
 	// ChannelAlerts - channel list
 	public static List<Integer> channels = new ArrayList<Integer>();
+	
+	// fetching channel id from config.app 
 	public static void initChannels() {
-		channels.add(7); // Channel id of a support channel or similar 
-		channels.add(50);
+		String[] numbers = ConfigWrapper.loadProp("channels").split(",");
+		for (String string : numbers) {
+			channels.add(Integer.parseInt(string));
+		}
 	}
 	public static List<Integer> groups = new ArrayList<Integer>();
+
+	// fetching group id from config.app 
 	public static void initGroups() {
-		groups.add(9); // Group id from groups which get notified when a user join a specific channel
-		groups.add(18);
+		String[] numbers = ConfigWrapper.loadProp("groups").split(",");
+		for (String string : numbers) {
+			groups.add(Integer.parseInt(string));
+		}
 	}
 	
 	// notify messages 
