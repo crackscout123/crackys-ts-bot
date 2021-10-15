@@ -1,3 +1,4 @@
+
 #  crackys-ts-bot
 
 This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
@@ -20,12 +21,25 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 - Download and install Java.
 
 ### Setup
-> Extract the archiv.
+First you need to run the bot in **dry-run mode** to create the config.app
 ```shell
-$ java -jar carckysbot.jar queryusername querypassword hostname
+$ java -jar carckysbot.jar --dry-run
+```
+ Edit the **config.app** to your preferences & save.
+```app
+host=localhost
+query=serveradmin
+password=password
+channels=7,50
+groups=9,18
+nickname=CrackysBot v1
 ```
 Replace **queryusername**, **querypassword**, **hostname** with the serverquery login credentials
 
+After that just run the bot.
+```shell
+$ java -jar carckysbot.jar 
+```
 
 ## Contributing
 
