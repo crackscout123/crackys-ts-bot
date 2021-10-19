@@ -13,7 +13,6 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 - **Channel Alert/Monitor**  - Define in the [*config.app*](#setup) which channels should be monitored and which groups should be notified when someone joins on of those channels.
 
 ## Todo
-+ Configurable messages
 + AfkMover
 + WebHook
 + AdminPanel (HTML & php)
