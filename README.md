@@ -1,3 +1,4 @@
+
 #  CrackysBot
 ![Build Status](https://img.shields.io/github/issues/getPoland/crackys-ts-bot.svg?style=flat-square) ![Build Stars](https://img.shields.io/github/stars/getPoland/crackys-ts-bot.svg?style=flat-square) ![GitHub forks](https://img.shields.io/github/forks/getPoland/crackys-ts-bot?style=flat-square) ![Build License](https://img.shields.io/github/license/getPoland/crackys-ts-bot.svg?style=flat-square)
 
@@ -7,6 +8,17 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 
 - <a href="https://www.oracle.com/de/java/technologies/javase/javase8-archive-downloads.html">JavaSE-1.8</a> (Should also work with newer versions)
 - <a href="https://github.com/TheHolyWaffle/TeamSpeak-3-Java-API">TeamSpeak 3 API</a> v1.0.14 
+
+## Functions 
+- **Channel Alert/Monitor**  - Define in the [*config.app*](#setup) which channels should be monitored and which groups should be notified when someone joins on of those channels.
+
+## Todo
++ Configurable messages
++ AfkMover
++ WebHook
++ AdminPanel (HTML & php)
+
+> Im coding this bot on my own. If you want to improve it or to add additional functions dont hesitat to [Fork / Contribut](#contributing) it or to contact me on Discord. (lostares_#6834)
 
 ## Table of Contents 
 
