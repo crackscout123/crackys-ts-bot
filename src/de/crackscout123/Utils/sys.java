@@ -18,7 +18,7 @@ public class sys {
 	public static String query_pass = CrackysBot.args_pass;
 	public static Integer VirtualServerId = 1;
 	public static String nickname = CrackysBot.args_nickname;
-	
+	public static Integer afkMoveTime = Integer.parseInt(ConfigWrapper.loadProp("afkMoveTime"));
 	
 // 	### MessageEvent.java ###
 	// You can use %sender% to display the nickname of user who triggered the command
@@ -26,30 +26,37 @@ public class sys {
 	
 //	### ClientEvents.java ###	
 	// ChannelAlerts - channel list
-	public static List<Integer> channels = new ArrayList<Integer>();
+	public static List<Integer> support_channels = new ArrayList<Integer>();
 	
-	// fetching channel id from config.app 
-	public static void initChannels() {
-		String[] numbers = ConfigWrapper.loadProp("channels").split(",");
+	// fetching support_channels id from config.app 
+	public static void initSupportChannels() {
+		String[] numbers = ConfigWrapper.loadProp("support_channels").split(",");
 		for (String string : numbers) {
-			channels.add(Integer.parseInt(string));
+			support_channels.add(Integer.parseInt(string));
 		}
 	}
-	public static List<Integer> groups = new ArrayList<Integer>();
+	public static List<Integer> support_groups = new ArrayList<Integer>();
 
-	// fetching group id from config.app 
-	public static void initGroups() {
-		String[] numbers = ConfigWrapper.loadProp("groups").split(",");
+	// fetching support_groups id from config.app 
+	public static void initSupportGroups() {
+		String[] numbers = ConfigWrapper.loadProp("support_groups").split(",");
 		for (String string : numbers) {
-			groups.add(Integer.parseInt(string));
+			support_groups.add(Integer.parseInt(string));
+		}
+	}
+
+	public static Integer afk_channel = Integer.parseInt(ConfigWrapper.loadProp("afk_channel"));
+	
+	public static List<Integer> afk_groups = new ArrayList<Integer>();
+
+	// fetching afk_group id from config.app 
+	public static void initAfkGroups() {
+		String[] numbers = ConfigWrapper.loadProp("ingnoreAfk_groups").split(",");
+		for (String string : numbers) {
+			afk_groups.add(Integer.parseInt(string));
 		}
 	}
 	
-	// notify messages 
-	public static boolean pokeAlert = true;
-	public static String channelAlertMsg = "[color=blue] %client% is waiting in '%channel%'";
-	public static String channelAlertPoke = "[color=blue] %client% is waiting in '%channel%'";
-	public static String alertedNotify = "[color=red][B]%alerted%[/B] stuff members got notified that you're here!";
 	
 	public static String getChannelNameById(Integer TargetChannelId) {
 		return CrackysBot.api.getChannelInfo(TargetChannelId).getName();

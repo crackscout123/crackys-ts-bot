@@ -5,11 +5,13 @@ import com.github.theholywaffle.teamspeak3.TS3Config;
 import com.github.theholywaffle.teamspeak3.TS3Query;
 import com.github.theholywaffle.teamspeak3.api.event.TS3EventType;
 
-import de.crackscout123.Events.ClientEvents;
+import de.crackscout123.Events.AfkMoveEvent;
+import de.crackscout123.Events.ChannelAlertEvent;
 import de.crackscout123.Events.MessageEvent;
-import de.crackscout123.Events.ServerEvents;
+import de.crackscout123.Events.SeverJoinEvent;
 import de.crackscout123.Utils.sys;
 import de.crackscout123.Wrapper.ConfigWrapper;
+import de.crackscout123.Wrapper.LangWrapper;
 
 // Alpha-v1
 
@@ -26,6 +28,12 @@ public class CrackysBot {
 	
 	
 	public static void main(String[] args) {
+		// Check if default.lang exists, create one if not
+		if(!LangWrapper.checkForDefault()) { LangWrapper.createDefaults(); }
+		if(!ConfigWrapper.checkForDefault()) { ConfigWrapper.createDefaults(); }
+		
+		//check IdleTime for AfkMoveEvent.java
+		
 		
 		// Fetch start parameters
 		// java -jar crackysbot.jar arg0 arg1 arg2
@@ -86,12 +94,16 @@ public class CrackysBot {
 			
 			// Initialize event class's
 			MessageEvent.load();
-			ServerEvents.load();
-			ClientEvents.load();
+			SeverJoinEvent.load();
+			ChannelAlertEvent.load();
 			
-			// Initialize channel & group list for ChannelAlerts 
-			sys.initChannels();
-			sys.initGroups();
+			//still having buggs!
+			//AfkMoveEvent.load();
+			
+			// Initialize channel & group list for ChannelAlerts & AfkMover
+			sys.initAfkGroups();
+			sys.initSupportChannels();
+			sys.initSupportGroups();
 			
 			// Print in console bot is ready
 			System.out.println("Crackys-Bot loaded.");

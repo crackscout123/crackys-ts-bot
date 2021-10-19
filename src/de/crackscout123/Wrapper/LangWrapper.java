@@ -6,14 +6,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigWrapper {
-
+public class LangWrapper {
+	
 	public static Properties prop = new Properties();
 	
 	public static void saveProp (String key, String value) {
 		try {
 			prop.setProperty(key, value);
-			prop.store(new FileOutputStream("config.app"), null);
+			prop.store(new FileOutputStream("default.lang"), null);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -23,7 +23,7 @@ public class ConfigWrapper {
 	public static String loadProp(String key) {
 		String value = "";
 		try {
-			prop.load(new FileInputStream("config.app"));
+			prop.load(new FileInputStream("default.lang"));
 			value = prop.getProperty(key);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -33,7 +33,7 @@ public class ConfigWrapper {
 	}
 	
 	public static boolean checkForDefault() {
-		File file = new File("config.app");
+		File file = new File("default.lang");
 		if(!file.exists()) {
 			return false;
 		}
@@ -42,26 +42,18 @@ public class ConfigWrapper {
 	
 	// create default values for config.app
 	public static void createDefaults() {
-		saveProp("host", "localhost");
-		saveProp("query", "serveradmin");
-		saveProp("password", "password");
-		saveProp("nickname", "CrackysBot v1");
-		saveProp("support_groups" , "9,18");
-		saveProp("support_channels", "7,50");
-		saveProp("support_poke", "true");
-		saveProp("ingnoreAfk_groups" , "7,1");
-		saveProp("afk_channel", "39");
-		saveProp("afk_poke", "true");
-		saveProp("afkMoveTime", "1");
-	
+		saveProp("channelAlertMsg", "[color=blue] %client% is waiting in '%channel%'");
+		saveProp("channelAlertPoke", "[color=blue] %client% is waiting in '%channel%'");
+		saveProp("alertedNotify", "[color=red][B]%alerted%[/B] stuff members got notified that you're here!");
+		saveProp("afkAlertMsg", "[color=red]We moved you into the AFK channel!");
+		saveProp("afkAlertPoke", "[color=red]We moved you into the AFK channel!");
 	}
-	
 }
 
 
 /**
  * @author Joel Rzepka - crackscout123.de
  *
- * @date 15.10.2021 - 01:45:36
+ * @date 19.10.2021 - 19:42:44
  *
  */

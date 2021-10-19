@@ -17,7 +17,7 @@ import com.github.theholywaffle.teamspeak3.api.wrapper.Client;
 
 import de.crackscout123.Main.CrackysBot;
 
-public class ServerEvents {
+public class SeverJoinEvent {
 	
 	// Initialize variables
 	public static Client sender;
@@ -30,7 +30,6 @@ public class ServerEvents {
 			@Override
 			public void onClientJoin(ClientJoinEvent e) {
 				sender = CrackysBot.api.getClientByUId(e.getUniqueClientIdentifier());
-				
 				System.out.println("|debug| "+ sender.getNickname() + " joined the server.");
 			}
 			
