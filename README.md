@@ -33,20 +33,36 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 - Download and install Java.
 
 ### Setup
-First you need to run the bot in **dry-run mode** to create the config.app
+Run the bot as following:
 ```shell
 $ java -jar carckysbot.jar --dry-run
 ```
- Edit the **config.app** to your preferences & save.
+The bot will create a config.app file and exit.
 ```app
-host=localhost
-query=serveradmin
+afk_poke=true
 password=password
-channels=7,50
-groups=9,18
+support_groups=9,18
+support_poke=true
+query=test
+host=localhost
 nickname=CrackysBot v1
+support_channels=7,50
+ingnoreAfk_groups=7,13
+afk_channel=39
+afkMoveTime=1 
 ```
-Replace **queryusername**, **querypassword**, **hostname** with the serverquery login credentials
+ Edit the **config.app** to your preferences & save. **queryusername**, **querypassword**, **hostname** with the serverquery login credentials
+ **afkMoveTime** is given in minutes!
+
+### default.lang
+```lang
+channelAlertPoke=[color\=blue] %client% is waiting in '%channel%'
+afkAlertMsg=[color\=red]We moved you into the AFK channel\!
+channelAlertMsg=[color\=blue] %client% is waiting in '%channel%'
+afkAlertPoke=[color\=red]We moved you into the AFK channel\!
+alertedNotify=[color\=red][B]%alerted%[/B] stuff members got notified that you're here\!
+```
+Here you can change the Messages.
 
 After that just run the bot.
 ```shell
