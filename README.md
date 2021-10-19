@@ -1,4 +1,5 @@
-#  crackys-ts-bot
+
+#  CrackysBot
 ![Build Status](https://img.shields.io/github/issues/getPoland/crackys-ts-bot.svg?style=flat-square) ![Build Stars](https://img.shields.io/github/stars/getPoland/crackys-ts-bot.svg?style=flat-square) ![GitHub forks](https://img.shields.io/github/forks/getPoland/crackys-ts-bot?style=flat-square) ![Build License](https://img.shields.io/github/license/getPoland/crackys-ts-bot.svg?style=flat-square)
 
 This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
@@ -7,6 +8,17 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 
 - <a href="https://www.oracle.com/de/java/technologies/javase/javase8-archive-downloads.html">JavaSE-1.8</a> (Should also work with newer versions)
 - <a href="https://github.com/TheHolyWaffle/TeamSpeak-3-Java-API">TeamSpeak 3 API</a> v1.0.14 
+
+## Functions 
+- **Channel Alert/Monitor**  - Define in the [*config.app*](#setup) which channels should be monitored and which groups should be notified when someone joins on of those channels.
+
+## Todo
++ Configurable messages
++ AfkMover
++ WebHook
++ AdminPanel (HTML & php)
+
+> Im coding this bot on my own. If you want to improve it or to add additional functions dont hesitat to [Fork / Contribut](#contributing) it or to contact me on Discord. (lostares_#6834)
 
 ## Table of Contents 
 
@@ -21,20 +33,36 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 - Download and install Java.
 
 ### Setup
-First you need to run the bot in **dry-run mode** to create the config.app
+Run the bot as following:
 ```shell
 $ java -jar carckysbot.jar --dry-run
 ```
- Edit the **config.app** to your preferences & save.
+The bot will create a config.app file and exit.
 ```app
-host=localhost
-query=serveradmin
+afk_poke=true
 password=password
-channels=7,50
-groups=9,18
+support_groups=9,18
+support_poke=true
+query=test
+host=localhost
 nickname=CrackysBot v1
+support_channels=7,50
+ingnoreAfk_groups=7,13
+afk_channel=39
+afkMoveTime=1 
 ```
-Replace **queryusername**, **querypassword**, **hostname** with the serverquery login credentials
+ Edit the **config.app** to your preferences & save. **queryusername**, **querypassword**, **hostname** with the serverquery login credentials
+ **afkMoveTime** is given in minutes!
+
+### default.lang
+```lang
+channelAlertPoke=[color\=blue] %client% is waiting in '%channel%'
+afkAlertMsg=[color\=red]We moved you into the AFK channel\!
+channelAlertMsg=[color\=blue] %client% is waiting in '%channel%'
+afkAlertPoke=[color\=red]We moved you into the AFK channel\!
+alertedNotify=[color\=red][B]%alerted%[/B] stuff members got notified that you're here\!
+```
+Here you can change the Messages.
 
 After that just run the bot.
 ```shell
