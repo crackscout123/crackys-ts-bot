@@ -26,14 +26,12 @@ public class SeverJoinEvent {
 		CrackysBot.api.registerAllEvents();
 		CrackysBot.api.addTS3Listeners(new TS3Listener[] { new TS3Listener(){
 
-
 			@Override
 			public void onClientJoin(ClientJoinEvent e) {
 				sender = CrackysBot.api.getClientByUId(e.getUniqueClientIdentifier());
 				System.out.println("|debug| "+ sender.getNickname() + " joined the server.");
 			}
-			
-			
+						
 			@Override
 			public void onTextMessage(TextMessageEvent args0) {	}
 			
@@ -66,11 +64,9 @@ public class SeverJoinEvent {
 
 			@Override
 			public void onServerEdit(ServerEditedEvent arg0) {}
-
 			
 	    } });
 	}
-	
 }
 
 

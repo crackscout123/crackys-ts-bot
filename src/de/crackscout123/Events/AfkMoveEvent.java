@@ -21,7 +21,7 @@ public class AfkMoveEvent {
 			
 			@Override
 			public void run() {
-				//sheduler checking idle time
+				// Scheduler checking idle time
 				for(Client c : CrackysBot.api.getClients()) {
 					if(c.getIdleTime() > sys.afkMoveTime*60*1000 && c.getChannelId() != sys.afk_channel && c.isInputMuted()) {
 						for(int i = 0; i < c.getServerGroups().length; i++) {
@@ -40,9 +40,6 @@ public class AfkMoveEvent {
 				}
 			}
 		}, 1000, 5*1000);
-		
-
-		
 	}
 }
 

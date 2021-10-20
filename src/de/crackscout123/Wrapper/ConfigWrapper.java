@@ -53,9 +53,7 @@ public class ConfigWrapper {
 		saveProp("afk_channel", "39");
 		saveProp("afk_poke", "true");
 		saveProp("afkMoveTime", "1");
-	
 	}
-	
 }
 
 

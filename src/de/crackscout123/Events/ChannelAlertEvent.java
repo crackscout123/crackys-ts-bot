@@ -21,14 +21,12 @@ import de.crackscout123.Utils.sys;
 
 public class ChannelAlertEvent {
 
-
 	public Client sender;
 	public static Messages msg;
 	
 	public static void load() {
 		
 		CrackysBot.api.registerAllEvents();
-
 		CrackysBot.api.addTS3Listeners(new TS3Listener[] { new TS3Listener() {
 			
 			@Override
@@ -94,9 +92,7 @@ public class ChannelAlertEvent {
 			public void onPrivilegeKeyUsed(PrivilegeKeyUsedEvent arg0) {}
 			
 		}});
-		
 	}
-	
 }
 
 

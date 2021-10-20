@@ -5,7 +5,6 @@ import com.github.theholywaffle.teamspeak3.TS3Config;
 import com.github.theholywaffle.teamspeak3.TS3Query;
 import com.github.theholywaffle.teamspeak3.api.event.TS3EventType;
 
-import de.crackscout123.Events.AfkMoveEvent;
 import de.crackscout123.Events.ChannelAlertEvent;
 import de.crackscout123.Events.MessageEvent;
 import de.crackscout123.Events.SeverJoinEvent;
@@ -13,7 +12,7 @@ import de.crackscout123.Utils.sys;
 import de.crackscout123.Wrapper.ConfigWrapper;
 import de.crackscout123.Wrapper.LangWrapper;
 
-// Alpha-v1
+// Alpha-v1.1
 
 public class CrackysBot {
 		
@@ -28,13 +27,10 @@ public class CrackysBot {
 	
 	
 	public static void main(String[] args) {
-		// Check if default.lang exists, create one if not
+		// Check if default.lang & config.app exists, create one if not
 		if(!LangWrapper.checkForDefault()) { LangWrapper.createDefaults(); }
 		if(!ConfigWrapper.checkForDefault()) { ConfigWrapper.createDefaults(); }
-		
-		//check IdleTime for AfkMoveEvent.java
-		
-		
+				
 		// Fetch start parameters
 		// java -jar crackysbot.jar arg0 arg1 arg2
 		for(int i = 0; i < args.length; i++) {
@@ -59,7 +55,6 @@ public class CrackysBot {
 	        	System.out.println("Please setup the config.app & restart the bot wihtout the argument --dry-run.");
 	        	System.out.println("exiting now!");
 	        	System.exit(0);
-	        
 	        }
 		}
 		
@@ -97,7 +92,7 @@ public class CrackysBot {
 			SeverJoinEvent.load();
 			ChannelAlertEvent.load();
 			
-			//still having buggs!
+			// still having buggs!
 			//AfkMoveEvent.load();
 			
 			// Initialize channel & group list for ChannelAlerts & AfkMover
