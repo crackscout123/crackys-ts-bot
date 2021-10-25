@@ -28,7 +28,7 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 
 ## Installation
 
-- Download as Zip or clone this repository.
+- Download the [latest relase](https://github.com/getPoland/crackys-ts-bot/releases)
 - Download and install Java.
 
 ### Setup
