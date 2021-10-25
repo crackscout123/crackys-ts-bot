@@ -11,9 +11,9 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 - <a href="https://github.com/TheHolyWaffle/TeamSpeak-3-Java-API">TeamSpeak 3 API</a> v1.0.14 
 
 ## Functions 
-- **Channel Alert/Monitor**  - Define in the [*config.app*](#setup) which channels should be monitored and which groups should be notified when someone joins on of those channels.
+- [**Channel Alert/Monitor**](https://github.com/getPoland/crackys-ts-bot/wiki/ChannelAlert)  - Define which channels should be monitored and which groups should be notified when someone joins on of those channels.
 
-- **AfkMover**  - Define a duration in minutes after which an afk user is moved to the afk channel. 
+- [**AfkMover**](https://github.com/getPoland/crackys-ts-bot/wiki/AfkMover)  - Define a duration in minutes after which an afk user is moved to the afk channel. 
 
 ## Todo
 
@@ -48,30 +48,12 @@ $ java -jar carckysbot.jar --dry-run
 ```
 The bot will create a config.app file and exit.
 ```app
-afk_poke=true
 password=password
-support_groups=9,18
-support_poke=true
 query=test
 host=localhost
 nickname=CrackysBot v1
-support_channels=7,50
-ingnoreAfk_groups=7,13
-afk_channel=39
-afkMoveTime=1 
 ```
- Edit the **config.app** to your preferences & save. **queryusername**, **querypassword**, **hostname** with the serverquery login credentials
- **afkMoveTime** is given in minutes!
-
-### default.lang
-```lang
-channelAlertPoke=[color\=blue] %client% is waiting in '%channel%'
-afkAlertMsg=[color\=red]We moved you into the AFK channel\!
-channelAlertMsg=[color\=blue] %client% is waiting in '%channel%'
-afkAlertPoke=[color\=red]We moved you into the AFK channel\!
-alertedNotify=[color\=red][B]%alerted%[/B] stuff members got notified that you're here\!
-```
-Here you can change the Messages.
+Edit the **config.app** to your preferences & save. **queryusername**, **querypassword**, **hostname** with the serverquery login credentials.
 
 After that just run the bot.
 ```shell
