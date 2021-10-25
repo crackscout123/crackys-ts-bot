@@ -1,4 +1,5 @@
 
+
 #  CrackysBot
 ![Build Status](https://img.shields.io/github/issues/getPoland/crackys-ts-bot.svg?style=flat-square) ![Build Stars](https://img.shields.io/github/stars/getPoland/crackys-ts-bot.svg?style=flat-square) ![GitHub forks](https://img.shields.io/github/forks/getPoland/crackys-ts-bot?style=flat-square) ![Build License](https://img.shields.io/github/license/getPoland/crackys-ts-bot.svg?style=flat-square)
 
@@ -12,10 +13,19 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 ## Functions 
 - **Channel Alert/Monitor**  - Define in the [*config.app*](#setup) which channels should be monitored and which groups should be notified when someone joins on of those channels.
 
+- **AfkMover**  - Define a duration in minutes after which an afk user is moved to the afk channel. 
+
 ## Todo
-+ AfkMover
-+ WebHook
-+ AdminPanel (HTML & php)
+
+ - [x] Configurable messages
+ - [x] Channel Alert
+ - [x] AfkMover
+ - [ ]  Verify-System
+ - [ ] Anti-Record
+ - [ ] Troll-Features ? 
+ - [ ] WebHook ?
+ - [ ]  AdminPanel (HTML & php) ?
+
 
 > Im coding this bot on my own. If you want to improve it or to add additional functions dont hesitat to [Fork / Contribut](#contributing) it or to contact me on Discord. (lostares_#6834)
 
