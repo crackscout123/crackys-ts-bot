@@ -5,10 +5,12 @@ import com.github.theholywaffle.teamspeak3.TS3Config;
 import com.github.theholywaffle.teamspeak3.TS3Query;
 import com.github.theholywaffle.teamspeak3.api.event.TS3EventType;
 
+import de.crackscout123.Events.AfkMoveEvent;
 import de.crackscout123.Events.ChannelAlertEvent;
 import de.crackscout123.Events.MessageEvent;
 import de.crackscout123.Events.SeverJoinEvent;
 import de.crackscout123.Utils.sys;
+import de.crackscout123.Verify.VerifyCommand;
 import de.crackscout123.Wrapper.ConfigWrapper;
 import de.crackscout123.Wrapper.LangWrapper;
 
@@ -91,9 +93,9 @@ public class CrackysBot {
 			MessageEvent.load();
 			SeverJoinEvent.load();
 			ChannelAlertEvent.load();
-			
-			// still having buggs!
-			//AfkMoveEvent.load();
+			AfkMoveEvent.load();
+
+			VerifyCommand.load();
 			
 			// Initialize channel & group list for ChannelAlerts & AfkMover
 			sys.initAfkGroups();

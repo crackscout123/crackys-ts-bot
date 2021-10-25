@@ -21,7 +21,7 @@ import de.crackscout123.Utils.sys;
 
 public class ChannelAlertEvent {
 
-	public Client sender;
+	public static Client sender;
 	public static Messages msg;
 	
 	public static void load() {
@@ -31,26 +31,26 @@ public class ChannelAlertEvent {
 			
 			@Override
 			public void onClientMoved(ClientMovedEvent e) {
+
+				sender = CrackysBot.api.getClientByUId(e.getInvokerUniqueId());
 				
 				// Check if the channels list contains the channel id which the user have joined
 				if(sys.support_channels.contains(e.getTargetChannelId())) {
 					int alerted = 0; 
 					// fetch all online clients
-					for(Client c : CrackysBot.api.getClients()) {
-						for(int i = 0; i < c.getServerGroups().length; i++) {
-							// check if one of the users groups is listed in the groups list
-							if(c.getServerGroups()[i] == sys.support_groups.get(i)) {
-							//if(sys.groups.contains(c.getServerGroups()[i])) {
-								alerted++;
-								if(Messages.support_poke) {
-									String pre_convertedPoke = Messages.channelAlertPoke.replace("%client%", sys.getNicknameById(e.getClientId()));
-									String convertedPoke = pre_convertedPoke.replace("%channel%", sys.getChannelNameById(e.getTargetChannelId()));
-									CrackysBot.api.pokeClient(c.getId(), convertedPoke);
-								} else {
-									String pre_convertedMsg = Messages.channelAlertMsg.replace("%client%", sys.getNicknameById(e.getClientId()));
-									String convertedMsg = pre_convertedMsg.replace("%channel%", sys.getChannelNameById(e.getTargetChannelId()));
-									CrackysBot.api.sendPrivateMessage(c.getId(), convertedMsg);
-								}
+					for(int i = 0; i < sender.getServerGroups().length; i++) {
+						// check if one of the users groups is listed in the groups list
+						if(sender.getServerGroups()[i] == sys.support_groups.get(i)) {
+						//if(sys.groups.contains(c.getServerGroups()[i])) {
+							alerted++;
+							if(Messages.support_poke) {
+								String pre_convertedPoke = Messages.channelAlertPoke.replace("%client%", sys.getNicknameById(e.getClientId()));
+								String convertedPoke = pre_convertedPoke.replace("%channel%", sys.getChannelNameById(e.getTargetChannelId()));
+								CrackysBot.api.pokeClient(sender.getId(), convertedPoke);
+							} else {
+								String pre_convertedMsg = Messages.channelAlertMsg.replace("%client%", sys.getNicknameById(e.getClientId()));
+								String convertedMsg = pre_convertedMsg.replace("%channel%", sys.getChannelNameById(e.getTargetChannelId()));
+								CrackysBot.api.sendPrivateMessage(sender.getId(), convertedMsg);
 							}
 						}
 					}
