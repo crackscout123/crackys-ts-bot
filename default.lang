@@ -1,6 +1,0 @@
-#Tue Oct 19 22:39:58 CEST 2021
-channelAlertPoke=[color\=blue] %client% is waiting in '%channel%'
-afkAlertMsg=[color\=red]We moved you into the AFK channel\!
-channelAlertMsg=[color\=blue] %client% is waiting in '%channel%'
-afkAlertPoke=[color\=red]We moved you into the AFK channel\!
-alertedNotify=[color\=red][B]%alerted%[/B] stuff members got notified that you're here\!

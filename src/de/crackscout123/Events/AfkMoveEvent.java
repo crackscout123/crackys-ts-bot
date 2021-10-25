@@ -1,45 +1,77 @@
 package de.crackscout123.Events;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import com.github.theholywaffle.teamspeak3.api.wrapper.Client;
 
 import de.crackscout123.Main.CrackysBot;
-import de.crackscout123.Utils.Messages;
-import de.crackscout123.Utils.sys;
+import de.crackscout123.Wrapper.Config;
 
 public class AfkMoveEvent {
 	// Initialize variables
 	public static Client sender;
 	public static Client target;
+	public static String file = "AfkMover.app";
 	
+	public static void createDefaults() {
+		if(!Config.checkForDefault(file)) {
+			Config.saveProp("afk_channel", "39", file);
+			Config.saveProp("ingnoreAfk_groups", "7,13", file);
+			Config.saveProp("poke", "true", file);
+			Config.saveProp("afkMoverEnabled", "true", file);
+			Config.saveProp("afkMoveTime", "1", file);
+			Config.saveProp("afkAlertMsg", "[color=red]We moved you into the AFK channel!", file);
+		}
+	}
+
 	public static void load() {
 
-		Timer timer = new Timer();
-		timer.schedule(new TimerTask() {
-			
-			@Override
-			public void run() {
-				// Scheduler checking idle time
-				for(Client c : CrackysBot.api.getClients()) {
-					if(c.getIdleTime() > sys.afkMoveTime*60*1000 && c.getChannelId() != sys.afk_channel && c.isInputMuted()) {
-						for(int i = 0; i < c.getServerGroups().length; i++) {
-							if(!(c.getServerGroups()[i] == sys.afk_groups.get(i))) {
-							//if(!(sys.afk_groups.contains(c.getServerGroups()[i]))) {
-								CrackysBot.api.moveClient(c.getId(), sys.afk_channel);
-								
-								if(Messages.afk_poke) {
-									CrackysBot.api.pokeClient(c.getId(), Messages.afkAlertPoke);
-								} else {
-									CrackysBot.api.sendPrivateMessage(c.getId(), Messages.afkAlertMsg);									
+		
+		Integer afk_channel = Integer.parseInt(Config.loadProp("afk_channel", file));
+		Integer afkMoveTime = Integer.parseInt(Config.loadProp("afkMoveTime", file));
+
+		Boolean poke = Boolean.parseBoolean(Config.loadProp("poke", file));
+		Boolean enabled = Boolean.parseBoolean(Config.loadProp("afkMoverEnabled", file));
+		
+		String afkAlertMsg = Config.loadProp("afkAlertMsg", file);
+		
+		List<Integer> afk_groups = new ArrayList<Integer>();
+
+		// fetching afk_group id from config.app 
+		String[] numbers = Config.loadProp("ingnoreAfk_groups", file).split(",");
+		for (String string : numbers) {
+			afk_groups.add(Integer.parseInt(string));
+		}
+	
+		
+		if(enabled) {
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask() {
+				
+				@Override
+				public void run() {
+					// Scheduler checking idle time
+					for(Client c : CrackysBot.api.getClients()) {
+						if(c.getIdleTime() > afkMoveTime*60*1000 && c.getChannelId() != afk_channel && c.isInputMuted()) {
+							for(int i = 0; i < c.getServerGroups().length; i++) {
+								if(!(c.getServerGroups()[i] == afk_groups.get(i))) {
+								//if(!(sys.afk_groups.contains(c.getServerGroups()[i]))) {
+									CrackysBot.api.moveClient(c.getId(), afk_channel);
+									if(poke) {
+										CrackysBot.api.pokeClient(c.getId(), afkAlertMsg);
+									} else {
+										CrackysBot.api.sendPrivateMessage(c.getId(), afkAlertMsg);									
+									}
 								}
 							}
 						}
 					}
 				}
-			}
-		}, 1000, 5*1000);
+			}, 1000, 5*1000);
+		}
 	}
 }
 

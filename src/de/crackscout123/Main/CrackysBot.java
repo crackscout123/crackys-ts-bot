@@ -11,13 +11,12 @@ import de.crackscout123.Events.MessageEvent;
 import de.crackscout123.Events.SeverJoinEvent;
 import de.crackscout123.Utils.sys;
 import de.crackscout123.Verify.VerifyCommand;
-import de.crackscout123.Wrapper.ConfigWrapper;
-import de.crackscout123.Wrapper.LangWrapper;
+import de.crackscout123.Wrapper.Settings;
 
 // Alpha-v1.1
 
 public class CrackysBot {
-		
+	
 	// Define login variables getting as start parameters
 	public static String args_user = "", args_pass = "", args_host = "", args_nickname = "";
 	public static boolean debug, dryrun = false;
@@ -29,9 +28,13 @@ public class CrackysBot {
 	
 	
 	public static void main(String[] args) {
+		// load defaults
+		VerifyCommand.createDefaults();
+		ChannelAlertEvent.createDefaults();
+		AfkMoveEvent.createDefaults();
+		
 		// Check if default.lang & config.app exists, create one if not
-		if(!LangWrapper.checkForDefault()) { LangWrapper.createDefaults(); }
-		if(!ConfigWrapper.checkForDefault()) { ConfigWrapper.createDefaults(); }
+		if(!Settings.checkForDefault()) { Settings.createDefaults(); }
 				
 		// Fetch start parameters
 		// java -jar crackysbot.jar arg0 arg1 arg2
@@ -52,7 +55,7 @@ public class CrackysBot {
 	        if(args[i].contains("--dry-run")) {
 	        	System.out.println("=====STARTED THE BOT IN DRYRUN MODE====");
 	        	System.out.println("Creating config.app...");
-	        	ConfigWrapper.createDefaults();
+	        	Settings.createDefaults();
 	        	System.out.println("config.app successfully created!");
 	        	System.out.println("Please setup the config.app & restart the bot wihtout the argument --dry-run.");
 	        	System.out.println("exiting now!");
@@ -66,10 +69,10 @@ public class CrackysBot {
 			args_host = args[2];
 			args_nickname = "CrackysBot - debugmode";
 		} else {
-			args_user = ConfigWrapper.loadProp("query");		
-			args_pass = ConfigWrapper.loadProp("password");	
-			args_host = ConfigWrapper.loadProp("host");	
-			args_nickname = ConfigWrapper.loadProp("nickname");	
+			args_user = Settings.loadProp("query");		
+			args_pass = Settings.loadProp("password");	
+			args_host = Settings.loadProp("host");	
+			args_nickname = Settings.loadProp("nickname");	
 		}
 		
 		// only connect to a server when bot is started without the --dry-run argument 
@@ -96,11 +99,7 @@ public class CrackysBot {
 			AfkMoveEvent.load();
 
 			VerifyCommand.load();
-			
-			// Initialize channel & group list for ChannelAlerts & AfkMover
-			sys.initAfkGroups();
-			sys.initSupportChannels();
-			sys.initSupportGroups();
+
 			
 			// Print in console bot is ready
 			System.out.println("Crackys-Bot loaded.");

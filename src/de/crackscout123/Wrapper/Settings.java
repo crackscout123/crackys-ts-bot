@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigWrapper {
+public class Settings {
 
 	public static Properties prop = new Properties();
 	
@@ -46,13 +46,6 @@ public class ConfigWrapper {
 		saveProp("query", "serveradmin");
 		saveProp("password", "password");
 		saveProp("nickname", "CrackysBot v1");
-		saveProp("support_groups" , "9,18");
-		saveProp("support_channels", "7,50");
-		saveProp("support_poke", "true");
-		saveProp("ingnoreAfk_groups" , "7,1");
-		saveProp("afk_channel", "39");
-		saveProp("afk_poke", "true");
-		saveProp("afkMoveTime", "1");
 	}
 }
 

@@ -30,6 +30,10 @@ public class SeverJoinEvent {
 			public void onClientJoin(ClientJoinEvent e) {
 				sender = CrackysBot.api.getClientByUId(e.getUniqueClientIdentifier());
 				System.out.println("|debug| "+ sender.getNickname() + " joined the server.");
+				
+				
+				
+				
 			}
 						
 			@Override
