@@ -17,14 +17,14 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 
 ## Todo
 
- - [x] Configurable messages
- - [x] Channel Alert
- - [x] AfkMover
- - [ ]  Verify-System
- - [ ] Anti-Record
- - [ ] Troll-Features ? 
- - [ ] WebHook ?
- - [ ]  AdminPanel (HTML & php) ?
+ -  ~~Configurable messages~~
+ -  ~~Channel Alert~~
+ -  ~~AfkMover~~
+ -  Verify-System
+ -  Anti-Record
+ - Troll-Features ? 
+ - WebHook ?
+ - [AdminPanel (HTML & php) ?
 
 
 > Im coding this bot on my own. If you want to improve it or to add additional functions dont hesitat to [Fork / Contribut](#contributing) it or to contact me on Discord. (lostares_#6834)
