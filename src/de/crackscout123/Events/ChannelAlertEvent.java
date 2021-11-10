@@ -21,6 +21,7 @@ import com.github.theholywaffle.teamspeak3.api.wrapper.Client;
 import de.crackscout123.Main.CrackysBot;
 import de.crackscout123.Utils.sys;
 import de.crackscout123.Wrapper.Config;
+import de.crackscout123.Wrapper.Debug;
 
 public class ChannelAlertEvent {
 
@@ -33,7 +34,7 @@ public class ChannelAlertEvent {
 			Config.saveProp("support_channels", "7,50", file);
 			Config.saveProp("support_groups", "9,18", file);
 			Config.saveProp("poke", "true", file);
-			Config.saveProp("channelAlertEnabled", "true", file);
+			Config.saveProp("channelAlertEnabled", "false", file);
 			Config.saveProp("channelAlertMsg", "[color=blue] %client% is waiting in '%channel%'", file);
 			Config.saveProp("notificationMsg", "[color=red][B]%alerted%[/B] stuff members got notified that you're here!", file);
 		}
@@ -84,7 +85,8 @@ public class ChannelAlertEvent {
 							if(sender.getServerGroups()[i] == support_groups.get(i)) {
 							//if(sys.groups.contains(c.getServerGroups()[i])) {
 								alerted++;
-								if(poke) {
+								Debug.info("CHANNEL ALERT");	
+								if(poke) {								
 									String pre_convertedPoke = channelAlertMsg.replace("%client%", sys.getNicknameById(e.getClientId()));
 									String convertedPoke = pre_convertedPoke.replace("%channel%", sys.getChannelNameById(e.getTargetChannelId()));
 									CrackysBot.api.pokeClient(sender.getId(), convertedPoke);

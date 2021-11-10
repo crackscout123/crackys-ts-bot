@@ -6,11 +6,12 @@ import com.github.theholywaffle.teamspeak3.TS3Query;
 import com.github.theholywaffle.teamspeak3.api.event.TS3EventType;
 
 import de.crackscout123.Events.AfkMoveEvent;
+import de.crackscout123.Events.AntiRecordEvent;
 import de.crackscout123.Events.ChannelAlertEvent;
 import de.crackscout123.Events.MessageEvent;
 import de.crackscout123.Events.SeverJoinEvent;
 import de.crackscout123.Utils.sys;
-import de.crackscout123.Verify.VerifyCommand;
+import de.crackscout123.Wrapper.Debug;
 import de.crackscout123.Wrapper.Settings;
 
 // Alpha-v1.1
@@ -28,10 +29,13 @@ public class CrackysBot {
 	
 	
 	public static void main(String[] args) {
+		Debug.info("STARTING BOT!");
 		// load defaults
-		VerifyCommand.createDefaults();
+		//VerifyCommand.createDefaults();
+		
 		ChannelAlertEvent.createDefaults();
 		AfkMoveEvent.createDefaults();
+		AntiRecordEvent.createDefaults();
 		
 		// Check if default.lang & config.app exists, create one if not
 		if(!Settings.checkForDefault()) { Settings.createDefaults(); }
@@ -40,16 +44,19 @@ public class CrackysBot {
 		// java -jar crackysbot.jar arg0 arg1 arg2
 		for(int i = 0; i < args.length; i++) {
 			// Handle the arguments 
+			Debug.info("CHECKING FOR START ARGUMTENTS...");
 			
 	        if(args[i].contains("-debug")) {
 	        	System.out.println("=====STARTED THE BOT IN DEBUG MODE====");
 	        	System.out.println("you need to add the login credentials as start arguments!");
 	        	debug = true;
+	        	Debug.info("-debug");
 	        }
 	        	        
 	        if(args[i].contains("--help")) {
 	        	System.out.println("=====HELP ARGUMENT TRIGGERD====");
 	        	System.out.println("java -jar crackybot.jar username password hostname");
+	        	Debug.info("--help");
 	        }
 	        
 	        if(args[i].contains("--dry-run")) {
@@ -60,7 +67,10 @@ public class CrackysBot {
 	        	System.out.println("Please setup the config.app & restart the bot wihtout the argument --dry-run.");
 	        	System.out.println("exiting now!");
 	        	System.exit(0);
+	        	Debug.info("--dry-run");
 	        }
+
+        	Debug.info("");
 		}
 		
 		if(debug == true) {
@@ -83,6 +93,7 @@ public class CrackysBot {
 			
 			// Connect as query to server
 			query.connect();
+			Debug.info("### CONNECING TO SERVER ###");
 			
 			// Initialize api
 			api.login(sys.query_user, sys.query_pass);
@@ -97,12 +108,13 @@ public class CrackysBot {
 			SeverJoinEvent.load();
 			ChannelAlertEvent.load();
 			AfkMoveEvent.load();
+			AntiRecordEvent.load();
 
-			VerifyCommand.load();
+			//VerifyCommand.load();
 
 			
 			// Print in console bot is ready
-			System.out.println("Crackys-Bot loaded.");
+			Debug.info("### CONNECTED AND LOADED ###");
 		}
 	}
 }
