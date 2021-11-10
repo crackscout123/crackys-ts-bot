@@ -22,7 +22,7 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
  -  ~~Configurable messages~~
  -  ~~Channel Alert~~
  -  ~~AfkMover~~
- ~~-  Anti-Record~~
+ -  ~~Anti-Record~~
  -  Verify-System
  - Troll-Features ? 
  - WebHook ?
