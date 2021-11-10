@@ -1,5 +1,6 @@
 
 
+
 #  CrackysBot
 ![GitHub issues](https://img.shields.io/github/issues/getPoland/crackys-ts-bot?style=flat-square) ![Build Stars](https://img.shields.io/github/stars/getPoland/crackys-ts-bot.svg?style=flat-square) ![GitHub forks](https://img.shields.io/github/forks/getPoland/crackys-ts-bot?style=flat-square) ![Build License](https://img.shields.io/github/license/getPoland/crackys-ts-bot.svg?style=flat-square)
 
@@ -15,13 +16,14 @@ This is  **CrackysBot**. A very useful and administrative TeamSpeak³-Query bot.
 
 - [**AfkMover**](https://github.com/getPoland/crackys-ts-bot/wiki/AfkMover)  - Define a duration in minutes after which an afk user is moved to the afk channel. 
 
+-  [**AntiRecord**](https://github.com/getPoland/crackys-ts-bot/wiki/AntiRecord)  -  Allow / Disallow users to record everywhere. Make channels / groups to allow recording.
 ## Todo
 
  -  ~~Configurable messages~~
  -  ~~Channel Alert~~
  -  ~~AfkMover~~
+ ~~-  Anti-Record~~
  -  Verify-System
- -  Anti-Record
  - Troll-Features ? 
  - WebHook ?
  - [AdminPanel (HTML & php) ?
