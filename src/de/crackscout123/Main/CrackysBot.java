@@ -10,6 +10,7 @@ import de.crackscout123.Events.AntiRecordEvent;
 import de.crackscout123.Events.ChannelAlertEvent;
 import de.crackscout123.Events.MessageEvent;
 import de.crackscout123.Events.SeverJoinEvent;
+import de.crackscout123.Events.Workbench;
 import de.crackscout123.Utils.sys;
 import de.crackscout123.Wrapper.Debug;
 import de.crackscout123.Wrapper.Settings;
@@ -36,6 +37,7 @@ public class CrackysBot {
 		ChannelAlertEvent.createDefaults();
 		AfkMoveEvent.createDefaults();
 		AntiRecordEvent.createDefaults();
+		Workbench.createDefaults();
 		
 		// Check if default.lang & config.app exists, create one if not
 		if(!Settings.checkForDefault()) { Settings.createDefaults(); }
@@ -109,6 +111,7 @@ public class CrackysBot {
 			ChannelAlertEvent.load();
 			AfkMoveEvent.load();
 			AntiRecordEvent.load();
+			Workbench.load();
 
 			//VerifyCommand.load();
 
