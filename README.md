@@ -86,4 +86,4 @@ $ java -jar carckysbot.jar
 ## License
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2021 © <a href="https://crackscout123.de" target="_blank">crackscout123</a>.
+- Copyright 2021-2022 © <a href="https://crackscout123.de" target="_blank">crackscout123</a>.
