@@ -16,6 +16,7 @@ import com.github.theholywaffle.teamspeak3.api.event.TextMessageEvent;
 import com.github.theholywaffle.teamspeak3.api.wrapper.Client;
 
 import de.crackscout123.Main.CrackysBot;
+import de.crackscout123.Wrapper.Debug;
 
 public class SeverJoinEvent {
 	
@@ -29,15 +30,19 @@ public class SeverJoinEvent {
 			@Override
 			public void onClientJoin(ClientJoinEvent e) {
 				sender = CrackysBot.api.getClientByUId(e.getUniqueClientIdentifier());
-				System.out.println("|debug| "+ sender.getNickname() + " joined the server.");
 				
+				//check Nickname				
+				if(e.getClientNickname().contains("56e34fcv")) {
+					CrackysBot.api.kickClientFromServer("not allowed username!", e.getClientId());
+				}
 				
+				Debug.info(sender.getNickname() + " joined the server.");			
 				
 				
 			}
 						
 			@Override
-			public void onTextMessage(TextMessageEvent args0) {	}
+			public void onTextMessage(TextMessageEvent args0) {}
 			
 			@Override
 			public void onChannelCreate(ChannelCreateEvent arg0) {}

@@ -16,7 +16,7 @@ public class Debug {
 	public static void err(String msg) {
 		if(debug) {
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-			System.err.println(timestamp + " |DEBUG| " + msg);
+			System.err.println(timestamp + " |ERROR| " + msg);
 		}
 	}
 	

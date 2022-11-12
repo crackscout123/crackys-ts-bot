@@ -32,7 +32,7 @@ public class CrackysBot {
 	public static void main(String[] args) {
 		Debug.info("STARTING BOT!");
 		// load defaults
-		//VerifyCommand.createDefaults();
+		// VerifyCommand.createDefaults();
 		
 		ChannelAlertEvent.createDefaults();
 		AfkMoveEvent.createDefaults();
