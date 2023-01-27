@@ -13,7 +13,7 @@ public class sys {
 	public static String hostname = CrackysBot.args_host;
 	public static String query_user = CrackysBot.args_user;
 	public static String query_pass = CrackysBot.args_pass;
-	public static Integer VirtualServerId = 2;
+	public static Integer VirtualServerId = 1;
 	public static String nickname = CrackysBot.args_nickname;
 	
 	public static String msg_botrunning = "Hi %sender%. All my system are online and running.";
